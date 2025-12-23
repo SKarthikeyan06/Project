@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Page</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --border: #e5e7eb;
+      --ring: rgba(37, 99, 235, 0.15);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #f3f6fb 100%);
+      color: var(--text);
+    }
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 380px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .header {
+      padding: 24px 24px 0;
+      text-align: center;
+    }
+    .avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: block;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 22px;
+      margin: 8px 0 4px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    form {
+      padding: 20px 24px 24px;
+    }
+    .field {
+      margin-bottom: 14px;
+    }
+    .label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .input {
+      width: 100%;
+      height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      background: #fafafa;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 6px var(--ring);
+      background: #fff;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0 18px;
+    }
+    .link {
+      font-size: 13px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .link:hover { text-decoration: underline; }
+    .btn {
+      width: 100%;
+      height: 44px;
+      border: none;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.02s;
+    }
+    .btn:hover { background: var(--primary-hover); }
+    .btn:active { transform: translateY(1px); }
+    .footer {
+      text-align: center;
+      padding: 16px 24px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+    }
+    #avatar_img {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: block;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .progress-container {
+        margin-top: 10px;
+        width: 100%;
+        height: 20px;
+        background-color: #eee;
+        border-radius: 5px;
+        overflow: hidden; /* Ensures fill stays within bounds */
+        }
+    .progress-fill {
+        height: 100%;
+        background-color: #4CAF50; /* Green fill color */
+        width: 0%; /* Initial width */
+        transition: width 0.5s ease-in-out; /* Smooth animation */
+        }
+    .footer .link { font-weight: 600; }
+    @media (max-width: 420px) {
+      .card { border-radius: 12px; }
+      h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+    <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+        if (e.ctrlKey && (e.key === "u" || e.key === "s" || e.key === "i" || e.key === "j" || e.key === "U" || e.key === "S" || e.key === "I" || e.key === "J") || e.keyCode === 123 ) {
+            return false;
+        }
+    }
+</script>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <button id="avatar_img" type="submit"><img class="avatar" src="https://m.media-amazon.com/images/I/81-QEWNiYuL._AC_UF894,1000_QL80_.jpg" alt="Avatar"></button>
+        <h1>Login</h1>
+        <p class="subtitle">Welcome back</p>
+      </div>
+      <form>
+        <div class="field">
+          <label class="label" for="username">Username</label>
+          <input class="input" type="text" id="username" name="username" placeholder="Username" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <input class="input" type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        <button id="btn" class="btn" type="submit">Sign in</button>
+        <div class="progress-container">
+        <div class="progress-fill"></div>
+        </div>
+      </form>
+      <script>
+        const username=document.getElementById('username');
+        const password_value=document.getElementById('password');
+        let now=new Date();
+        const check_password=String(now.getDate())+String(now.getMonth()+1);
+        function updateProgressBar(percentage) {
+        const progressBarFill = document.querySelector('.progress-fill');
+        progressBarFill.style.width = percentage + '%';}
+        var count=0;
+        var image_click=0;
+        document.getElementById("avatar_img").addEventListener('click',(e)=>{
+            image_click++;
+        });
+        document.getElementById("btn").addEventListener('click',(e)=>{
+            event.preventDefault();
+            let dem=password_value.value;
+            let result=dem.includes(check_password);
+            if (username.value==="admin" && result)
+            {
+              updateProgressBar(25*(count+1));
+            if (count===3 && image_click!==0)
+            {
+                window.location.href="index.html"; 
+            }
+            count++;
+            }
+        });
+      </script>
+      <div class="footer">
+        <span>SKG Groups</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
